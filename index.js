@@ -1,8 +1,14 @@
 const express = require('express');
+const path = require('path');
 const app = require('./api/leads');
 
-// This helps Vercel's scanner identify the Express application
-const main = express();
-main.use(app);
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-module.exports = main;
+// Handle the home page explicitly if needed, 
+// though express.static usually handles index.html automatically
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+module.exports = app;
