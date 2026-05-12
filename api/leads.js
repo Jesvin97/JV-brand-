@@ -5,29 +5,13 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// MongoDB Connection URI from .env
 const uri = process.env.MONGODB_URI; 
-// Example: "mongodb+srv://<username>:<password>@cluster0.mongodb.net/?retryWrites=true&w=majority"
-
 const client = new MongoClient(uri);
 
-async function connectDB() {
-    try {
-        await client.connect();
-        console.log("Connected to MongoDB");
-    } catch (err) {
-        console.error("MongoDB connection error:", err);
-    }
-}
-connectDB();
-
-// API Endpoint to save leads
 app.post('/api/leads', async (req, res) => {
     try {
         const { name, mobile, timestamp } = req.body;
@@ -36,6 +20,7 @@ app.post('/api/leads', async (req, res) => {
             return res.status(400).json({ error: "Name and Mobile are required" });
         }
 
+        await client.connect();
         const database = client.db("jv_brand");
         const leads = database.collection("leads");
 
@@ -46,14 +31,13 @@ app.post('/api/leads', async (req, res) => {
             source: "Beginning Gate"
         });
 
-        console.log(`New lead saved: ${name} (${mobile})`);
         res.status(201).json({ message: "Lead saved successfully", id: result.insertedId });
     } catch (err) {
         console.error("Error saving lead:", err);
         res.status(500).json({ error: "Internal Server Error" });
+    } finally {
+        await client.close();
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+module.exports = app;
