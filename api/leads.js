@@ -11,11 +11,22 @@ app.use(bodyParser.json());
 
 const uri = process.env.MONGODB_URI; 
 
-if (!uri) {
-    console.error("MONGODB_URI is not defined in environment variables!");
-}
+let cachedClient = null;
 
-const client = uri ? new MongoClient(uri) : null;
+async function connectToDatabase() {
+    if (cachedClient) {
+        return cachedClient;
+    }
+
+    if (!uri) {
+        throw new Error("MONGODB_URI is not defined in environment variables!");
+    }
+
+    const client = new MongoClient(uri);
+    await client.connect();
+    cachedClient = client;
+    return client;
+}
 
 app.post('/api/leads', async (req, res) => {
     try {
@@ -25,18 +36,7 @@ app.post('/api/leads', async (req, res) => {
             return res.status(400).json({ error: "Name and Mobile are required" });
         }
 
-        if (!client) {
-            console.error("CRITICAL: MongoClient not initialized. Check MONGODB_URI.");
-            return res.status(500).json({ error: "Database configuration missing on server" });
-        }
-
-        try {
-            await client.connect();
-        } catch (connErr) {
-            console.error("CRITICAL: Failed to connect to MongoDB:", connErr.message);
-            return res.status(500).json({ error: "Failed to connect to database" });
-        }
-
+        const client = await connectToDatabase();
         const database = client.db("jv_brand");
         const leads = database.collection("leads");
 
