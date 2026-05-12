@@ -26,10 +26,17 @@ app.post('/api/leads', async (req, res) => {
         }
 
         if (!client) {
-            return res.status(500).json({ error: "Database configuration missing" });
+            console.error("CRITICAL: MongoClient not initialized. Check MONGODB_URI.");
+            return res.status(500).json({ error: "Database configuration missing on server" });
         }
 
-        await client.connect();
+        try {
+            await client.connect();
+        } catch (connErr) {
+            console.error("CRITICAL: Failed to connect to MongoDB:", connErr.message);
+            return res.status(500).json({ error: "Failed to connect to database" });
+        }
+
         const database = client.db("jv_brand");
         const leads = database.collection("leads");
 
@@ -42,10 +49,12 @@ app.post('/api/leads', async (req, res) => {
 
         res.status(201).json({ message: "Lead saved successfully", id: result.insertedId });
     } catch (err) {
-        console.error("Error saving lead:", err);
-        res.status(500).json({ error: "Internal Server Error" });
+        console.error("General Error in /api/leads:", err);
+        res.status(500).json({ error: "Internal Server Error", details: err.message });
     } finally {
-        await client.close();
+        // Optional: on Vercel, closing connection immediately can be slower for subsequent calls,
+        // but it's safer for preventing connection leaks if not using a singleton.
+        // await client.close(); 
     }
 });
 
