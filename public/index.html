@@ -21,18 +21,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="icon" type="image/png" href="favicon.png" />
     <style>
-        .glass-card, .glass-panel {
+        .glass-card,
+        .glass-panel {
             background: rgba(26, 25, 24, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(242, 241, 229, 0.05);
         }
 
-        .gold-edge, .gold-rim {
+        .gold-edge,
+        .gold-rim {
             position: relative;
         }
 
-        .gold-edge::before, .gold-rim::before {
+        .gold-edge::before,
+        .gold-rim::before {
             content: '';
             position: absolute;
             top: 0;
@@ -44,8 +47,17 @@
         }
 
         @keyframes breathing-gradient {
-            0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.8; }
-            50% { transform: scale(1.1) translate(-2%, 2%); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.1) translate(-2%, 2%);
+                opacity: 1;
+            }
         }
 
         .animate-breathing {
@@ -53,8 +65,13 @@
         }
 
         @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .marquee-track {
@@ -72,7 +89,8 @@
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
 
-        input, textarea {
+        input,
+        textarea {
             background-color: transparent !important;
             border: none !important;
             border-bottom: 1px solid rgba(153, 144, 124, 0.3) !important;
@@ -84,7 +102,8 @@
             transition: all 0.3s ease;
         }
 
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             border-bottom: 1px solid #e9c24d !important;
             outline: none !important;
         }
@@ -194,17 +213,24 @@
 <body class="bg-surface text-on-surface antialiased overflow-x-hidden selection:bg-surface-tint selection:text-surface">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-white/5">
-        <div class="flex justify-between items-center max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop h-20">
+        <div
+            class="flex justify-between items-center max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop h-20">
             <div class="font-headline-md text-headline-md font-bold text-on-surface">JV Brand</div>
             <div class="hidden md:flex items-center gap-gutter">
-                <a class="font-label-caps text-label-caps text-primary border-b border-primary pb-1 transition-all" href="#">Home</a>
-                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors" href="#services">Services</a>
-                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors" href="#about">About</a>
-                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors" href="#contact">Contact</a>
-                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors" href="#blogs">Blogs</a>
+                <a class="font-label-caps text-label-caps text-primary border-b border-primary pb-1 transition-all"
+                    href="#">Home</a>
+                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors"
+                    href="#services">Services</a>
+                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors"
+                    href="#about">About</a>
+                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors"
+                    href="#contact">Contact</a>
+                <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors"
+                    href="#blogs">Blogs</a>
             </div>
             <div class="hidden md:block">
-                <a href="#contact" class="px-6 py-3 bg-surface border border-surface-tint text-on-surface font-label-caps text-label-caps rounded hover:bg-surface-tint hover:text-surface transition-all duration-300 inline-block">
+                <a href="#contact"
+                    class="px-6 py-3 bg-surface border border-surface-tint text-on-surface font-label-caps text-label-caps rounded hover:bg-surface-tint hover:text-surface transition-all duration-300 inline-block">
                     Let's Collaborate
                 </a>
             </div>
@@ -215,7 +241,8 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div class="fixed inset-0 z-[60] bg-surface/95 backdrop-blur-2xl flex flex-col p-margin-mobile transition-all duration-500 ease-in-out translate-x-full" id="mobile-menu">
+    <div class="fixed inset-0 z-[60] bg-surface/95 backdrop-blur-2xl flex flex-col p-margin-mobile transition-all duration-500 ease-in-out translate-x-full"
+        id="mobile-menu">
         <div class="flex justify-between items-center h-20 mb-12">
             <div class="font-headline-md text-headline-md font-bold text-on-surface">JV Brand</div>
             <button class="text-on-surface" id="close-menu">
@@ -223,44 +250,60 @@
             </button>
         </div>
         <nav class="flex flex-col gap-8 mb-12">
-            <a class="text-2xl font-label-caps text-on-surface/60 hover:text-primary transition-colors" href="#">Home</a>
-            <a class="text-2xl font-label-caps text-on-surface/60 hover:text-primary transition-colors" href="#services">Services</a>
-            <a class="text-2xl font-label-caps text-on-surface/60 hover:text-primary transition-colors" href="#about">About</a>
+            <a class="text-2xl font-label-caps text-on-surface/60 hover:text-primary transition-colors"
+                href="#">Home</a>
+            <a class="text-2xl font-label-caps text-on-surface/60 hover:text-primary transition-colors"
+                href="#services">Services</a>
+            <a class="text-2xl font-label-caps text-on-surface/60 hover:text-primary transition-colors"
+                href="#about">About</a>
             <a class="text-2xl font-label-caps text-primary border-l-2 border-primary pl-4" href="#contact">Contact</a>
         </nav>
         <div class="mt-auto pb-12">
-            <a href="#contact" class="w-full text-center block bg-primary text-on-primary font-label-caps text-label-caps py-5 px-6 rounded-none hover:brightness-110 transition-all">Let's Collaborate</a>
+            <a href="#contact"
+                class="w-full text-center block bg-primary text-on-primary font-label-caps text-label-caps py-5 px-6 rounded-none hover:brightness-110 transition-all">Let's
+                Collaborate</a>
         </div>
     </div>
 
     <main class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop pt-32">
         <!-- Hero Section -->
         <section class="min-h-[70vh] flex flex-col justify-center relative mb-section-gap">
-            <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-surface-tint/10 via-surface to-surface animate-breathing"></div>
+            <div
+                class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-surface-tint/10 via-surface to-surface animate-breathing">
+            </div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7">
-                    <h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-6 leading-tight">
+                    <h1
+                        class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-6 leading-tight">
                         Turning Attention <br />
-                        Into <span class="text-transparent bg-clip-text bg-gradient-to-r from-surface-tint to-tertiary-container">Authority</span>.
+                        Into <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-surface-tint to-tertiary-container">Authority</span>.
                     </h1>
                     <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
-                        I am Joyal Vincent, a personal branding & content strategist in Kerala. I help founders and startups build digital assets that drive trust, influence, and revenue, not just likes.
+                        I am Joyal Vincent, a personal branding & content strategist in Kerala. I help founders and
+                        startups build digital assets that drive trust, influence, and revenue, not just likes.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a class="px-8 py-4 bg-surface-container-highest border border-surface-tint text-on-surface font-label-caps text-label-caps rounded transition-all duration-300 hover:bg-surface-tint hover:text-surface" href="#services">
+                        <a class="px-8 py-4 bg-surface-container-highest border border-surface-tint text-on-surface font-label-caps text-label-caps rounded transition-all duration-300 hover:bg-surface-tint hover:text-surface"
+                            href="#services">
                             Explore Services
                         </a>
-                        <a class="px-8 py-4 bg-transparent border border-outline text-on-surface font-label-caps text-label-caps rounded transition-all duration-300 hover:bg-surface-container-high" href="#contact">
+                        <a class="px-8 py-4 bg-transparent border border-outline text-on-surface font-label-caps text-label-caps rounded transition-all duration-300 hover:bg-surface-container-high"
+                            href="#contact">
                             Get in Touch
                         </a>
                     </div>
                 </div>
                 <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                    <div class="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden glass-panel border border-white/10 p-2 rotate-3 hover:rotate-0 transition-all duration-700">
-                        <img src="me.png" alt="Joyal Vincent" class="w-full h-full object-cover rounded-xl transition-all duration-700 shadow-2xl" />
-                        <div class="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-lg border border-white/10 backdrop-blur-md">
+                    <div
+                        class="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden glass-panel border border-white/10 p-2 rotate-3 hover:rotate-0 transition-all duration-700">
+                        <img src="me.png" alt="Joyal Vincent"
+                            class="w-full h-full object-cover rounded-xl transition-all duration-700 shadow-2xl" />
+                        <div
+                            class="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-lg border border-white/10 backdrop-blur-md">
                             <p class="font-label-caps text-label-caps text-primary mb-1">Joyal Vincent</p>
-                            <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Personal Branding Strategist</p>
+                            <p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Personal Branding
+                                Strategist</p>
                         </div>
                     </div>
                 </div>
@@ -275,32 +318,47 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
                 <!-- Service 1: Personal Branding -->
-                <div class="glass-panel p-8 gold-rim flex flex-col justify-between min-h-[340px] hover:scale-[1.02] hover:brightness-110 transition-all duration-300 rounded-xl group overflow-hidden relative">
-                    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-surface-container-high/50 to-surface-container/20 group-hover:from-surface-container-high/80 transition-all duration-700"></div>
+                <div
+                    class="glass-panel p-8 gold-rim flex flex-col justify-between min-h-[340px] hover:scale-[1.02] hover:brightness-110 transition-all duration-300 rounded-xl group overflow-hidden relative">
+                    <div
+                        class="absolute inset-0 -z-10 bg-gradient-to-br from-surface-container-high/50 to-surface-container/20 group-hover:from-surface-container-high/80 transition-all duration-700">
+                    </div>
                     <div>
                         <span class="material-symbols-outlined text-4xl text-primary mb-6">workspace_premium</span>
                         <h3 class="font-headline-md text-headline-md mb-4">Personal Branding</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Focusing on helping founders build an authoritative digital presence that drives trust, attracts talent, and closes high-ticket deals.</p>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Focusing on helping
+                            founders build an authoritative digital presence that drives trust, attracts talent, and
+                            closes high-ticket deals.</p>
                     </div>
                 </div>
 
                 <!-- Service 2: Content Strategy -->
-                <div class="glass-panel p-8 gold-rim flex flex-col justify-between min-h-[340px] hover:scale-[1.02] hover:brightness-110 transition-all duration-300 rounded-xl group overflow-hidden relative">
-                    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-surface-container-high/50 to-surface-container/20 group-hover:from-surface-container-high/80 transition-all duration-700"></div>
+                <div
+                    class="glass-panel p-8 gold-rim flex flex-col justify-between min-h-[340px] hover:scale-[1.02] hover:brightness-110 transition-all duration-300 rounded-xl group overflow-hidden relative">
+                    <div
+                        class="absolute inset-0 -z-10 bg-gradient-to-br from-surface-container-high/50 to-surface-container/20 group-hover:from-surface-container-high/80 transition-all duration-700">
+                    </div>
                     <div>
                         <span class="material-symbols-outlined text-4xl text-primary mb-6">strategy</span>
                         <h3 class="font-headline-md text-headline-md mb-4">Content Strategy</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Creating structured content plans that turn followers into paying clients by defining exactly what to post and when.</p>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Creating structured
+                            content plans that turn followers into paying clients by defining exactly what to post and
+                            when.</p>
                     </div>
                 </div>
 
                 <!-- Service 3: Social Media Management -->
-                <div class="glass-panel p-8 gold-rim flex flex-col justify-between min-h-[340px] hover:scale-[1.02] hover:brightness-110 transition-all duration-300 rounded-xl group overflow-hidden relative">
-                    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-surface-container-high/50 to-surface-container/20 group-hover:from-surface-container-high/80 transition-all duration-700"></div>
+                <div
+                    class="glass-panel p-8 gold-rim flex flex-col justify-between min-h-[340px] hover:scale-[1.02] hover:brightness-110 transition-all duration-300 rounded-xl group overflow-hidden relative">
+                    <div
+                        class="absolute inset-0 -z-10 bg-gradient-to-br from-surface-container-high/50 to-surface-container/20 group-hover:from-surface-container-high/80 transition-all duration-700">
+                    </div>
                     <div>
                         <span class="material-symbols-outlined text-4xl text-primary mb-6">public</span>
                         <h3 class="font-headline-md text-headline-md mb-4">Social Media Management</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Handling the end-to-end process, from design to captions, ensuring a brand stays active while the owner focuses on the business.</p>
+                        <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">Handling the
+                            end-to-end process, from design to captions, ensuring a brand stays active while the owner
+                            focuses on the business.</p>
                     </div>
                 </div>
             </div>
@@ -308,20 +366,41 @@
 
         <!-- Brands Marquee Section -->
         <section class="mb-section-gap">
-            <h2 class="font-headline-xl text-headline-xl mb-16 border-b border-white/5 pb-4">Brands I work with</h2>
-            <div class="marquee-container glass-panel py-16 rounded-xl overflow-hidden relative border border-white/5 bg-surface-container-low/30">
+            <h2 class="font-headline-xl text-headline-xl mb-16 border-b border-white/5 pb-4">Brands</h2>
+            <div
+                class="marquee-container glass-panel py-16 rounded-xl overflow-hidden relative border border-white/5 bg-surface-container-low/30">
                 <div class="marquee-track flex items-center">
-                    <div class="px-12"><img src="1.webp" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="3.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="4.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="6.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="7.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="1.webp"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="3.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="4.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="6.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="7.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
                     <!-- Duplicate for infinite scroll -->
-                    <div class="px-12"><img src="1.webp" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="3.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="4.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="6.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
-                    <div class="px-12"><img src="7.png" class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300" alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="1.webp"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="3.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="4.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="6.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
+                    <div class="px-12"><img src="7.png"
+                            class="h-12 w-auto opacity-60 hover:opacity-100 transition-all duration-300"
+                            alt="Brand Logo" /></div>
                 </div>
             </div>
         </section>
@@ -334,29 +413,40 @@
                         <div class="h-px w-24 bg-surface-tint opacity-50"></div>
                     </div>
                     <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8">
-                        As a Branding & Content Strategist based in Kerala, bridging the gap between creative design and business growth. The focus is on helping founders, startups, and consultants build "digital authorities" to attract high-ticket clients rather than just clicks.
+                        As a Branding & Content Strategist based in Kerala, bridging the gap between creative design and
+                        business growth. The focus is on helping founders, startups, and consultants build "digital
+                        authorities" to attract high-ticket clients rather than just clicks.
                     </p>
                     <div class="relative rounded-xl overflow-hidden border border-white/10 glass-panel p-2 mt-4">
-                        <img src="aboutus.jpeg" alt="About JV Brand" class="w-full aspect-video object-cover rounded-lg" />
+                        <img src="aboutus.jpeg" alt="About JV Brand"
+                            class="w-full aspect-video object-cover rounded-lg" />
                     </div>
                 </div>
                 <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-gutter">
-                    <div class="glass-panel p-10 rounded-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
+                    <div
+                        class="glass-panel p-10 rounded-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
                         <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                             <span class="material-symbols-outlined text-primary">target</span>
                         </div>
-                        <h3 class="font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest">Mission</h3>
+                        <h3 class="font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest">Mission
+                        </h3>
                         <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                            To shift businesses from competing on price to competing on value. The goal is to provide Kerala’s startups with global-level brand strategies, ensuring their voices are heard clearly in the market.
+                            To shift businesses from competing on price to competing on value. The goal is to provide
+                            Kerala’s startups with global-level brand strategies, ensuring their voices are heard
+                            clearly in the market.
                         </p>
                     </div>
-                    <div class="glass-panel p-10 rounded-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
+                    <div
+                        class="glass-panel p-10 rounded-xl border border-white/5 hover:border-primary/20 transition-colors duration-500">
                         <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                             <span class="material-symbols-outlined text-primary">visibility</span>
                         </div>
-                        <h3 class="font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest">Vision</h3>
+                        <h3 class="font-label-caps text-label-caps text-primary mb-4 uppercase tracking-widest">Vision
+                        </h3>
                         <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                            Driven by the philosophy that "Design without strategy is just art" and "Content without intent is just noise." The focus is on building data-driven digital assets (websites and brands) that function as a 24/7 sales team.
+                            Driven by the philosophy that "Design without strategy is just art" and "Content without
+                            intent is just noise." The focus is on building data-driven digital assets (websites and
+                            brands) that function as a 24/7 sales team.
                         </p>
                     </div>
                 </div>
@@ -366,10 +456,14 @@
         <!-- Contact Section -->
         <section class="mb-section-gap" id="contact">
             <div class="max-w-3xl mb-16">
-                <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Let's Start a Conversation.</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant">Whether you're looking for editorial design, a luxury digital experience, or a complete brand overhaul, I am currently accepting select collaborations.</p>
+                <h2
+                    class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">
+                    Let's Start a Conversation.</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Whether you're looking for editorial
+                    design, a luxury digital experience, or a complete brand overhaul, I am currently accepting select
+                    collaborations.</p>
             </div>
-            
+
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
                 <!-- Inquiry Form -->
                 <div class="lg:col-span-8 glass-panel gold-rim rounded-xl p-8 md:p-12">
@@ -377,35 +471,51 @@
                     <form id="inquiry-form" class="space-y-12">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="relative group">
-                                <label class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Name</label>
-                                <input id="inquiry-name" class="w-full py-2 bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all" placeholder="Jane Doe" type="text" required />
+                                <label
+                                    class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Name</label>
+                                <input id="inquiry-name"
+                                    class="w-full py-2 bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all"
+                                    placeholder="Jane Doe" type="text" required />
                             </div>
                             <div class="relative group">
-                                <label class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Email</label>
-                                <input id="inquiry-email" class="w-full py-2 bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all" placeholder="jane@example.com" type="email" required />
+                                <label
+                                    class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Email</label>
+                                <input id="inquiry-email"
+                                    class="w-full py-2 bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all"
+                                    placeholder="jane@example.com" type="email" required />
                             </div>
                         </div>
                         <div class="relative group">
-                            <label class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Subject</label>
-                            <input id="inquiry-subject" class="w-full py-2 bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all" placeholder="e.g. Brand Identity, Web Design" type="text" />
+                            <label
+                                class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Subject</label>
+                            <input id="inquiry-subject"
+                                class="w-full py-2 bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all"
+                                placeholder="e.g. Brand Identity, Web Design" type="text" />
                         </div>
                         <div class="relative group">
-                            <label class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Project Details</label>
-                            <textarea id="inquiry-details" class="w-full py-2 resize-none bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all" placeholder="Tell me about your vision..." rows="4" required></textarea>
+                            <label
+                                class="font-label-caps text-label-caps text-on-surface-variant absolute -top-5 left-0 transition-all group-focus-within:text-primary">Project
+                                Details</label>
+                            <textarea id="inquiry-details"
+                                class="w-full py-2 resize-none bg-transparent border-b border-white/10 focus:border-primary outline-none transition-all"
+                                placeholder="Tell me about your vision..." rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="mt-8 bg-surface-tint text-surface py-4 px-8 font-label-caps text-label-caps hover:brightness-110 transition-all duration-300 w-full md:w-auto rounded-xl">
+                        <button type="submit"
+                            class="mt-8 bg-surface-tint text-surface py-4 px-8 font-label-caps text-label-caps hover:brightness-110 transition-all duration-300 w-full md:w-auto rounded-xl">
                             Submit Inquiry
                         </button>
                     </form>
                 </div>
-                
+
                 <!-- Sidebar -->
                 <div class="lg:col-span-4 flex flex-col gap-gutter">
                     <div class="glass-panel rounded-xl p-8 flex-grow">
                         <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6">Direct Line</h3>
                         <div class="space-y-6">
-                            <a class="flex items-center gap-4 group hover:translate-x-2 transition-all duration-300" href="mailto:joyalvae@gmail.com">
-                                <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-surface group-hover:border-primary/50">
+                            <a class="flex items-center gap-4 group hover:translate-x-2 transition-all duration-300"
+                                href="mailto:joyalvae@gmail.com">
+                                <div
+                                    class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-surface group-hover:border-primary/50">
                                     <span class="material-symbols-outlined text-primary">mail</span>
                                 </div>
                                 <div>
@@ -413,8 +523,10 @@
                                     <p class="text-on-surface font-medium">joyalvae@gmail.com</p>
                                 </div>
                             </a>
-                            <a class="flex items-center gap-4 group hover:translate-x-2 transition-all duration-300" href="https://wa.me/918921537818" target="_blank">
-                                <div class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-surface group-hover:border-primary/50">
+                            <a class="flex items-center gap-4 group hover:translate-x-2 transition-all duration-300"
+                                href="https://wa.me/918921537818" target="_blank">
+                                <div
+                                    class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-surface group-hover:border-primary/50">
                                     <i class="fa-brands fa-whatsapp text-xl text-primary"></i>
                                 </div>
                                 <div>
@@ -423,22 +535,27 @@
                                 </div>
                             </a>
                         </div>
-                        
+
                         <div class="mt-12 pt-8 border-t border-white/5">
-                            <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-6 uppercase tracking-widest">Connect Socially</h3>
+                            <h3
+                                class="font-label-caps text-label-caps text-on-surface-variant mb-6 uppercase tracking-widest">
+                                Connect Socially</h3>
                             <div class="flex gap-4">
-                                <a href="https://www.linkedin.com/in/joyalvincentk/" target="_blank" class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all duration-300">
+                                <a href="https://www.linkedin.com/in/joyalvincentk/" target="_blank"
+                                    class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all duration-300">
                                     <i class="fa-brands fa-linkedin-in text-xl"></i>
                                 </a>
-                                <a href="https://www.facebook.com/joyalvincentk/" target="_blank" class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all duration-300">
+                                <a href="https://www.facebook.com/joyalvincentk/" target="_blank"
+                                    class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all duration-300">
                                     <i class="fa-brands fa-facebook-f text-xl"></i>
                                 </a>
-                                <a href="https://www.instagram.com/gujju_mallu_/" target="_blank" class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all duration-300">
+                                <a href="https://www.instagram.com/gujju_mallu_/" target="_blank"
+                                    class="w-12 h-12 rounded-xl glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 transition-all duration-300">
                                     <i class="fa-brands fa-instagram text-xl"></i>
                                 </a>
                             </div>
                         </div>
-            </div>
+                    </div>
         </section>
     </main>
 
@@ -447,11 +564,16 @@
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                 <div class="font-headline-md text-headline-md font-bold text-on-surface">JV Brand</div>
                 <div class="flex flex-wrap gap-6">
-                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors" href="#">Home</a>
-                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors" href="#services">Services</a>
-                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors" href="#about">About</a>
-                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors" href="#contact">Contact</a>
-                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors"
+                        href="#">Home</a>
+                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors"
+                        href="#services">Services</a>
+                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors"
+                        href="#about">About</a>
+                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors"
+                        href="#contact">Contact</a>
+                    <a class="font-body-md text-body-md text-on-surface/40 hover:text-primary transition-colors"
+                        href="#">Privacy Policy</a>
                 </div>
             </div>
             <div class="font-body-md text-body-md text-secondary opacity-50">
@@ -461,17 +583,21 @@
     </footer>
 
     <!-- vCard Prompt Modal -->
-    <div id="vcard-prompt" class="fixed bottom-8 right-8 z-[100] max-w-sm w-full glass-panel p-6 rounded-xl border border-primary/20 shadow-2xl translate-y-20 opacity-0 transition-all duration-700 pointer-events-none">
+    <div id="vcard-prompt"
+        class="fixed bottom-8 right-8 z-[100] max-w-sm w-full glass-panel p-6 rounded-xl border border-primary/20 shadow-2xl translate-y-20 opacity-0 transition-all duration-700 pointer-events-none">
         <div class="flex items-start gap-4">
             <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                 <span class="material-symbols-outlined text-primary">person_add</span>
             </div>
             <div class="flex-grow">
                 <h4 class="font-label-caps text-label-caps text-on-surface mb-1">Save Contact</h4>
-                <p class="text-xs text-on-surface-variant mb-4">Download Joyal Vincent's vCard to save his contact info directly to your phone.</p>
+                <p class="text-xs text-on-surface-variant mb-4">Download Joyal Vincent's vCard to save his contact info
+                    directly to your phone.</p>
                 <div class="flex gap-3">
-                    <button id="download-vcard" class="bg-primary text-on-primary text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded hover:brightness-110 transition-all">Download</button>
-                    <button id="close-vcard" class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest px-4 py-2 hover:text-on-surface transition-all">Dismiss</button>
+                    <button id="download-vcard"
+                        class="bg-primary text-on-primary text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded hover:brightness-110 transition-all">Download</button>
+                    <button id="close-vcard"
+                        class="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest px-4 py-2 hover:text-on-surface transition-all">Dismiss</button>
                 </div>
             </div>
         </div>
