@@ -10,7 +10,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const uri = process.env.MONGODB_URI; 
-const client = new MongoClient(uri);
+
+if (!uri) {
+    console.error("MONGODB_URI is not defined in environment variables!");
+}
+
+const client = uri ? new MongoClient(uri) : null;
 
 app.post('/api/leads', async (req, res) => {
     try {
@@ -18,6 +23,10 @@ app.post('/api/leads', async (req, res) => {
         
         if (!name || !mobile) {
             return res.status(400).json({ error: "Name and Mobile are required" });
+        }
+
+        if (!client) {
+            return res.status(500).json({ error: "Database configuration missing" });
         }
 
         await client.connect();
