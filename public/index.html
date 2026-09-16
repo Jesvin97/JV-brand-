@@ -1083,15 +1083,18 @@ END:VCARD`;
 
         // WhatsApp Inquiry Redirection
         const inquiryForm = document.getElementById('inquiry-form');
-        inquiryForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('inquiry-name').value;
-            const details = document.getElementById('inquiry-details').value;
-            const whatsappNumber = "918921537818";
-            const message = `hi i ${name} and this isssues i am facing ${details}`;
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
-        });
+        if (inquiryForm) {
+            inquiryForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('inquiry-name').value;
+                const details = document.getElementById('inquiry-details').value;
+                const whatsappNumber = "918921537818";
+                const message = `hi i ${name} and this isssues i am facing ${details}`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+            });
+        }
+    </script>
 
     <!-- Instant Brand Audit Progress Modal (Neil Patel Inspired) -->
     <div id="audit-modal" class="fixed inset-0 z-[120] bg-surface/90 backdrop-blur-2xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
