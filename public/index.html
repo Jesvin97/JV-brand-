@@ -22,6 +22,41 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 107, 0, 0.15);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Light Mode Overrides */
+        body.light-mode {
+            background-color: #faf8f5 !important;
+            color: #1a1715 !important;
+        }
+
+        body.light-mode .glass-panel,
+        body.light-mode .glass-card {
+            background: rgba(255, 255, 255, 0.85) !important;
+            border: 1px solid rgba(255, 107, 0, 0.2) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        body.light-mode nav {
+            background: rgba(250, 248, 245, 0.85) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        }
+
+        body.light-mode .text-on-surface,
+        body.light-mode .text-on-surface-variant {
+            color: #2c2520 !important;
+        }
+
+        body.light-mode input,
+        body.light-mode textarea {
+            color: #1a1715 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+        }
+
+        body.light-mode input:focus,
+        body.light-mode textarea:focus {
+            border-bottom: 1px solid #ff6b00 !important;
         }
 
         .gold-edge,
@@ -88,18 +123,18 @@
         textarea {
             background-color: transparent !important;
             border: none !important;
-            border-bottom: 1px solid rgba(153, 144, 124, 0.3) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
             border-radius: 0 !important;
             box-shadow: none !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
-            color: #e8e1de !important;
+            color: #ffffff !important;
             transition: all 0.3s ease;
         }
 
         input:focus,
         textarea:focus {
-            border-bottom: 1px solid #e9c24d !important;
+            border-bottom: 1px solid #ff6b00 !important;
             outline: none !important;
         }
 
@@ -225,15 +260,23 @@
                 <a class="font-label-caps text-label-caps text-on-surface/60 hover:text-on-surface transition-colors"
                     href="#contact">Contact</a>
             </div>
-            <div class="hidden md:block shrink-0">
+            <div class="hidden md:flex items-center gap-4 shrink-0">
+                <button id="theme-toggle-btn" class="w-10 h-10 rounded-full glass-panel border border-white/10 flex items-center justify-center text-on-surface hover:text-primary transition-all">
+                    <span id="theme-icon" class="material-symbols-outlined text-lg">light_mode</span>
+                </button>
                 <a href="#contact"
                     class="px-5 py-2.5 bg-surface border border-surface-tint text-on-surface font-label-caps text-xs rounded hover:bg-surface-tint hover:text-surface transition-all duration-300 inline-block whitespace-nowrap">
                     Let's Collaborate
                 </a>
             </div>
-            <button class="md:hidden text-on-surface" id="open-menu">
-                <span class="material-symbols-outlined text-2xl">menu</span>
-            </button>
+            <div class="flex items-center gap-2 md:hidden">
+                <button id="theme-toggle-mobile" class="w-9 h-9 rounded-full glass-panel border border-white/10 flex items-center justify-center text-on-surface hover:text-primary transition-all">
+                    <span id="theme-icon-mobile" class="material-symbols-outlined text-base">light_mode</span>
+                </button>
+                <button class="text-on-surface p-1" id="open-menu">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -788,9 +831,41 @@
                 </div>
             </div>
         </div>
-    </div>
-
     <script>
+        // Day / Night Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+        const applyTheme = (isLight) => {
+            if (isLight) {
+                document.body.classList.add('light-mode');
+                if (themeIcon) themeIcon.innerText = 'dark_mode';
+                if (themeIconMobile) themeIconMobile.innerText = 'dark_mode';
+            } else {
+                document.body.classList.remove('light-mode');
+                if (themeIcon) themeIcon.innerText = 'light_mode';
+                if (themeIconMobile) themeIconMobile.innerText = 'light_mode';
+            }
+        };
+
+        const toggleTheme = () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            localStorage.setItem('jv_theme', isLight ? 'light' : 'dark');
+            applyTheme(isLight);
+        };
+
+        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('jv_theme');
+        if (savedTheme === 'light') {
+            applyTheme(true);
+        }
+
+        // Mobile Menu
         const mobileMenu = document.getElementById('mobile-menu');
         const openMenuBtn = document.getElementById('open-menu');
         const closeMenuBtn = document.getElementById('close-menu');
