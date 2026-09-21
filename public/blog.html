@@ -208,10 +208,10 @@
         <div class="mb-12 flex flex-col md:flex-row gap-4 items-center justify-between glass-panel p-4 rounded-2xl border border-white/10">
             <!-- Filter Tabs -->
             <div class="flex flex-wrap gap-2 justify-center md:justify-start" id="category-tabs">
-                <button class="filter-tab active px-4 py-2 text-xs font-label-caps rounded-xl bg-primary text-on-primary font-semibold transition-all" data-category="all">All Articles</button>
-                <button class="filter-tab px-4 py-2 text-xs font-label-caps rounded-xl glass-panel text-on-surface-variant hover:text-primary transition-all" data-category="branding">Personal Branding</button>
-                <button class="filter-tab px-4 py-2 text-xs font-label-caps rounded-xl glass-panel text-on-surface-variant hover:text-primary transition-all" data-category="strategy">Content Strategy</button>
-                <button class="filter-tab px-4 py-2 text-xs font-label-caps rounded-xl glass-panel text-on-surface-variant hover:text-primary transition-all" data-category="growth">Client Acquisition</button>
+                <button class="filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-primary text-on-primary font-semibold shadow-lg transition-all" data-category="all">All Articles</button>
+                <button class="filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-surface-container-low/60 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all border border-white/5" data-category="branding">Personal Branding</button>
+                <button class="filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-surface-container-low/60 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all border border-white/5" data-category="strategy">Content Strategy</button>
+                <button class="filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-surface-container-low/60 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all border border-white/5" data-category="growth">Client Acquisition</button>
             </div>
 
             <!-- Search Bar -->
@@ -421,11 +421,11 @@
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('bg-primary', 'text-on-primary', 'active'));
-                    tabs.forEach(t => t.classList.add('glass-panel', 'text-on-surface-variant'));
+                    tabs.forEach(t => {
+                        t.className = "filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-surface-container-low/60 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all border border-white/5";
+                    });
                     
-                    tab.classList.remove('glass-panel', 'text-on-surface-variant');
-                    tab.classList.add('bg-primary', 'text-on-primary', 'active');
+                    tab.className = "filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-primary text-on-primary font-semibold shadow-lg transition-all border border-primary";
 
                     const category = tab.getAttribute('data-category');
                     articles.forEach(article => {
