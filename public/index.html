@@ -986,170 +986,6 @@
         </div>
     </footer>
 
-    <script>
-        // Day / Night Mode Toggle Logic
-        const themeToggleBtn = document.getElementById('theme-toggle-btn');
-        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-        const themeIcon = document.getElementById('theme-icon');
-        const themeIconMobile = document.getElementById('theme-icon-mobile');
-
-        const applyTheme = (isLight) => {
-            if (isLight) {
-                document.body.classList.add('light-mode');
-                if (themeIcon) themeIcon.innerText = 'dark_mode';
-                if (themeIconMobile) themeIconMobile.innerText = 'dark_mode';
-            } else {
-                document.body.classList.remove('light-mode');
-                if (themeIcon) themeIcon.innerText = 'light_mode';
-                if (themeIconMobile) themeIconMobile.innerText = 'light_mode';
-            }
-        };
-
-        const toggleTheme = () => {
-            const isLight = document.body.classList.toggle('light-mode');
-            localStorage.setItem('jv_theme', isLight ? 'light' : 'dark');
-            applyTheme(isLight);
-        };
-
-        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-        if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
-
-        // Load saved theme preference
-        const savedTheme = localStorage.getItem('jv_theme');
-        if (savedTheme === 'light') {
-            applyTheme(true);
-        }
-
-        // Mobile Menu
-        const mobileMenu = document.getElementById('mobile-menu');
-        const openMenuBtn = document.getElementById('open-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-
-        const toggleMenu = (open) => {
-            if (open) {
-                mobileMenu.classList.remove('translate-x-full');
-                document.body.style.overflow = 'hidden';
-            } else {
-                mobileMenu.classList.add('translate-x-full');
-                document.body.style.overflow = '';
-            }
-        };
-
-        openMenuBtn.addEventListener('click', () => toggleMenu(true));
-        closeMenuBtn.addEventListener('click', () => toggleMenu(false));
-        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
-
-        // Interactive Brand Audit Scanner Logic (Neil Patel Inspired)
-        const auditModal = document.getElementById('audit-modal');
-        const auditForm = document.getElementById('hero-audit-form');
-        const auditInput = document.getElementById('hero-audit-input');
-        const auditTargetUrl = document.getElementById('audit-target-url');
-        const auditProgressBar = document.getElementById('audit-progress-bar');
-        const auditScanningView = document.getElementById('audit-scanning-view');
-        const auditResultsView = document.getElementById('audit-results-view');
-        const auditRedirectBtn = document.getElementById('audit-redirect-btn');
-
-        let currentAuditUrl = '';
-
-        auditForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            currentAuditUrl = auditInput.value.trim();
-            if (!currentAuditUrl) return;
-
-            auditTargetUrl.innerText = currentAuditUrl;
-            auditModal.classList.remove('opacity-0', 'pointer-events-none');
-            auditScanningView.classList.remove('hidden');
-            auditResultsView.classList.add('hidden');
-            auditProgressBar.style.width = '0%';
-
-            document.getElementById('audit-step-1').classList.remove('opacity-40');
-            document.getElementById('audit-step-2').classList.add('opacity-40');
-            document.getElementById('audit-step-3').classList.add('opacity-40');
-
-            setTimeout(() => {
-                auditProgressBar.style.width = '40%';
-                document.getElementById('audit-step-2').classList.remove('opacity-40');
-            }, 1000);
-
-            setTimeout(() => {
-                auditProgressBar.style.width = '80%';
-                document.getElementById('audit-step-3').classList.remove('opacity-40');
-            }, 2200);
-
-            setTimeout(() => {
-                auditProgressBar.style.width = '100%';
-                setTimeout(() => {
-                    auditScanningView.classList.add('hidden');
-                    auditResultsView.classList.remove('hidden');
-                }, 400);
-            }, 3200);
-        });
-
-        const closeAuditModal = () => {
-            auditModal.classList.add('opacity-0', 'pointer-events-none');
-        };
-
-        auditRedirectBtn.addEventListener('click', () => {
-            const message = `Hi Joyal, I ran the instant Brand Audit for my URL: ${currentAuditUrl}. I'd like to get my 3 growth recommendations!`;
-            window.open(`https://wa.me/918921537818?text=${encodeURIComponent(message)}`, '_blank');
-            closeAuditModal();
-        });
-
-        // Testimonial Carousel Handler
-        const track = document.getElementById('testimonial-track');
-        const prevBtn = document.getElementById('testimonial-prev');
-        const nextBtn = document.getElementById('testimonial-next');
-        let currentSlide = 0;
-
-        const updateCarousel = () => {
-            const slideWidth = track.children[0].offsetWidth + 24; // width + gap
-            track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-        };
-
-        nextBtn.addEventListener('click', () => {
-            if (currentSlide < track.children.length - 1) {
-                currentSlide++;
-                updateCarousel();
-            } else {
-                currentSlide = 0;
-                updateCarousel();
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarousel();
-            } else {
-                currentSlide = track.children.length - 1;
-                updateCarousel();
-            }
-        });
-
-        window.addEventListener('resize', updateCarousel);
-
-        // Resource Download Handler (Jenna Kutcher Inspired)
-        const downloadResource = (resourceName) => {
-            const message = `Hi Joyal, I would like to download the free toolkit: ${resourceName}`;
-            window.open(`https://wa.me/918921537818?text=${encodeURIComponent(message)}`, '_blank');
-        };
-
-
-        // WhatsApp Inquiry Redirection
-        const inquiryForm = document.getElementById('inquiry-form');
-        if (inquiryForm) {
-            inquiryForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('inquiry-name').value;
-                const details = document.getElementById('inquiry-details').value;
-                const whatsappNumber = "918921537818";
-                const message = `hi i ${name} and this isssues i am facing ${details}`;
-                const encodedMessage = encodeURIComponent(message);
-                window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-            });
-        }
-    </script>
-
     <!-- Instant Brand Audit Progress Modal (Neil Patel Inspired) -->
     <div id="audit-modal" class="fixed inset-0 z-[120] bg-surface/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-all duration-300">
         <div class="glass-panel gold-rim rounded-2xl max-w-lg w-full p-6 sm:p-8 relative border border-white/10 shadow-2xl text-center max-h-[90vh] overflow-y-auto">
@@ -1205,6 +1041,188 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Day / Night Mode Toggle Logic
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
+
+            const applyTheme = (isLight) => {
+                if (isLight) {
+                    document.body.classList.add('light-mode');
+                    if (themeIcon) themeIcon.innerText = 'dark_mode';
+                    if (themeIconMobile) themeIconMobile.innerText = 'dark_mode';
+                } else {
+                    document.body.classList.remove('light-mode');
+                    if (themeIcon) themeIcon.innerText = 'light_mode';
+                    if (themeIconMobile) themeIconMobile.innerText = 'light_mode';
+                }
+            };
+
+            const toggleTheme = () => {
+                const isLight = document.body.classList.toggle('light-mode');
+                localStorage.setItem('jv_theme', isLight ? 'light' : 'dark');
+                applyTheme(isLight);
+            };
+
+            if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+            if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
+            const savedTheme = localStorage.getItem('jv_theme');
+            if (savedTheme === 'light') {
+                applyTheme(true);
+            }
+
+            // Mobile Menu
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openMenuBtn = document.getElementById('open-menu');
+            const closeMenuBtn = document.getElementById('close-menu');
+
+            const toggleMenu = (open) => {
+                if (!mobileMenu) return;
+                if (open) {
+                    mobileMenu.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.style.overflow = '';
+                }
+            };
+
+            if (openMenuBtn) openMenuBtn.addEventListener('click', () => toggleMenu(true));
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => toggleMenu(false));
+            if (mobileMenu) {
+                mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+            }
+
+            // Interactive Brand Audit Scanner Logic (Neil Patel Inspired)
+            const auditModal = document.getElementById('audit-modal');
+            const auditForm = document.getElementById('hero-audit-form');
+            const auditInput = document.getElementById('hero-audit-input');
+            const auditTargetUrl = document.getElementById('audit-target-url');
+            const auditProgressBar = document.getElementById('audit-progress-bar');
+            const auditScanningView = document.getElementById('audit-scanning-view');
+            const auditResultsView = document.getElementById('audit-results-view');
+            const auditRedirectBtn = document.getElementById('audit-redirect-btn');
+
+            let currentAuditUrl = '';
+
+            if (auditForm && auditInput && auditModal) {
+                auditForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    currentAuditUrl = auditInput.value.trim();
+                    if (!currentAuditUrl) return;
+
+                    if (auditTargetUrl) auditTargetUrl.innerText = currentAuditUrl;
+                    auditModal.classList.remove('opacity-0', 'pointer-events-none');
+                    if (auditScanningView) auditScanningView.classList.remove('hidden');
+                    if (auditResultsView) auditResultsView.classList.add('hidden');
+                    if (auditProgressBar) auditProgressBar.style.width = '0%';
+
+                    const step1 = document.getElementById('audit-step-1');
+                    const step2 = document.getElementById('audit-step-2');
+                    const step3 = document.getElementById('audit-step-3');
+
+                    if (step1) step1.classList.remove('opacity-40');
+                    if (step2) step2.classList.add('opacity-40');
+                    if (step3) step3.classList.add('opacity-40');
+
+                    setTimeout(() => {
+                        if (auditProgressBar) auditProgressBar.style.width = '40%';
+                        if (step2) step2.classList.remove('opacity-40');
+                    }, 1000);
+
+                    setTimeout(() => {
+                        if (auditProgressBar) auditProgressBar.style.width = '80%';
+                        if (step3) step3.classList.remove('opacity-40');
+                    }, 2200);
+
+                    setTimeout(() => {
+                        if (auditProgressBar) auditProgressBar.style.width = '100%';
+                        setTimeout(() => {
+                            if (auditScanningView) auditScanningView.classList.add('hidden');
+                            if (auditResultsView) auditResultsView.classList.remove('hidden');
+                        }, 400);
+                    }, 3200);
+                });
+            }
+
+            window.closeAuditModal = () => {
+                if (auditModal) auditModal.classList.add('opacity-0', 'pointer-events-none');
+            };
+
+            if (auditRedirectBtn) {
+                auditRedirectBtn.addEventListener('click', () => {
+                    const message = `Hi Joyal, I ran the instant Brand Audit for my URL: ${currentAuditUrl}. I'd like to get my 3 growth recommendations!`;
+                    window.open(`https://wa.me/918921537818?text=${encodeURIComponent(message)}`, '_blank');
+                    window.closeAuditModal();
+                });
+            }
+
+            // Testimonial Carousel Handler
+            const track = document.getElementById('testimonial-track');
+            const prevBtn = document.getElementById('testimonial-prev');
+            const nextBtn = document.getElementById('testimonial-next');
+            let currentSlide = 0;
+
+            const updateCarousel = () => {
+                if (!track || !track.children.length) return;
+                const slideWidth = track.children[0].offsetWidth + 24; // width + gap
+                track.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            };
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (!track) return;
+                    if (currentSlide < track.children.length - 1) {
+                        currentSlide++;
+                        updateCarousel();
+                    } else {
+                        currentSlide = 0;
+                        updateCarousel();
+                    }
+                });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (!track) return;
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateCarousel();
+                    } else {
+                        currentSlide = track.children.length - 1;
+                        updateCarousel();
+                    }
+                });
+            }
+
+            window.addEventListener('resize', updateCarousel);
+
+            // Resource Download Handler (Jenna Kutcher Inspired)
+            window.downloadResource = (resourceName) => {
+                const message = `Hi Joyal, I would like to download the free toolkit: ${resourceName}`;
+                window.open(`https://wa.me/918921537818?text=${encodeURIComponent(message)}`, '_blank');
+            };
+
+            // WhatsApp Inquiry Redirection
+            const inquiryForm = document.getElementById('inquiry-form');
+            if (inquiryForm) {
+                inquiryForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('inquiry-name').value;
+                    const details = document.getElementById('inquiry-details').value;
+                    const whatsappNumber = "918921537818";
+                    const message = `hi i ${name} and this isssues i am facing ${details}`;
+                    const encodedMessage = encodeURIComponent(message);
+                    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
