@@ -225,127 +225,11 @@
             </div>
         </div>
 
-        <!-- Blog Articles Grid -->
+        <!-- Blog Articles Grid (Fetched dynamically from Sanity CMS) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="articles-grid">
-            <!-- Article 1 -->
-            <article class="article-card glass-panel gold-rim p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 group" data-category="branding">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-[10px] uppercase font-label-caps text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Personal Branding</span>
-                        <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">schedule</span> 5 min read
-                        </span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">Founder Brand Blueprint 2026: Niche Positioning</h2>
-                    <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">How founders move away from competing on price and position themselves as the undeniable authority in their industry segment.</p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] text-on-surface-variant">Sept 2026</span>
-                    <button onclick="readArticle('Founder Brand Blueprint 2026')" class="text-xs font-label-caps text-primary font-semibold flex items-center gap-1 hover:translate-x-1 transition-all">
-                        Read Guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 2 -->
-            <article class="article-card glass-panel gold-rim p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 group" data-category="strategy">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-[10px] uppercase font-label-caps text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Content Strategy</span>
-                        <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">schedule</span> 7 min read
-                        </span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">Converting LinkedIn Views into High-Ticket Leads</h2>
-                    <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">Stop optimizing for vanity likes. Build a structured 3-stage content funnel that turns profile visitors into qualified warm leads.</p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] text-on-surface-variant">Sept 2026</span>
-                    <button onclick="readArticle('Converting LinkedIn Views into High-Ticket Leads')" class="text-xs font-label-caps text-primary font-semibold flex items-center gap-1 hover:translate-x-1 transition-all">
-                        Read Guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 3 -->
-            <article class="article-card glass-panel gold-rim p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 group" data-category="growth">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-[10px] uppercase font-label-caps text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Client Acquisition</span>
-                        <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">schedule</span> 4 min read
-                        </span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">The 15-Point Digital Authority Checklist</h2>
-                    <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">A step-by-step audit framework used to optimize founder bios, visual assets, social proof, and lead capture hooks.</p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] text-on-surface-variant">Aug 2026</span>
-                    <button onclick="readArticle('15-Point Digital Authority Checklist')" class="text-xs font-label-caps text-primary font-semibold flex items-center gap-1 hover:translate-x-1 transition-all">
-                        Read Guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 4 -->
-            <article class="article-card glass-panel gold-rim p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 group" data-category="branding">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-[10px] uppercase font-label-caps text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Personal Branding</span>
-                        <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">schedule</span> 6 min read
-                        </span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">Building Personal Authority in Regional Markets</h2>
-                    <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">How Kerala startups can combine authentic storytelling with international design standards to win global clients.</p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] text-on-surface-variant">Aug 2026</span>
-                    <button onclick="readArticle('Building Personal Authority in Regional Markets')" class="text-xs font-label-caps text-primary font-semibold flex items-center gap-1 hover:translate-x-1 transition-all">
-                        Read Guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 5 -->
-            <article class="article-card glass-panel gold-rim p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 group" data-category="strategy">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-[10px] uppercase font-label-caps text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Content Strategy</span>
-                        <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">schedule</span> 8 min read
-                        </span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">30-Day Content Framework That Closes Deals</h2>
-                    <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">Hook formulas, content pillars, and call-to-action structures designed to convert cold readers into consultations.</p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] text-on-surface-variant">Jul 2026</span>
-                    <button onclick="readArticle('30-Day Content Framework')" class="text-xs font-label-caps text-primary font-semibold flex items-center gap-1 hover:translate-x-1 transition-all">
-                        Read Guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </button>
-                </div>
-            </article>
-
-            <!-- Article 6 -->
-            <article class="article-card glass-panel gold-rim p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 group" data-category="growth">
-                <div>
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-[10px] uppercase font-label-caps text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">Client Acquisition</span>
-                        <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
-                            <span class="material-symbols-outlined text-sm">schedule</span> 5 min read
-                        </span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">Why Websites Without Strategy Are Just Expenses</h2>
-                    <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">Why aesthetic design alone is not enough, and how UX architecture turns websites into 24/7 client generation engines.</p>
-                </div>
-                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span class="text-[11px] text-on-surface-variant">Jul 2026</span>
-                    <button onclick="readArticle('Websites Without Strategy')" class="text-xs font-label-caps text-primary font-semibold flex items-center gap-1 hover:translate-x-1 transition-all">
-                        Read Guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                    </button>
-                </div>
-            </article>
+            <div class="col-span-full text-center py-12 text-on-surface-variant font-label-caps text-sm animate-pulse">
+                Loading blog content from Sanity CMS...
+            </div>
         </div>
     </main>
 
@@ -419,45 +303,113 @@
             if (openMenuBtn) openMenuBtn.addEventListener('click', () => toggleMenu(true));
             if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => toggleMenu(false));
 
-            // Filtering logic
-            const tabs = document.querySelectorAll('.filter-tab');
-            const articles = document.querySelectorAll('.article-card');
+            // Sanity GROQ Query Integration
+            const SANITY_PROJECT_ID = 'wl22yvia';
+            const SANITY_DATASET = 'production';
+            const GROQ_QUERY = encodeURIComponent('*[_type == "post"] | order(publishedAt desc){ _id, title, slug, category, readTime, excerpt, publishedAt }');
+            const SANITY_URL = `https://${SANITY_PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${SANITY_DATASET}?query=${GROQ_QUERY}`;
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => {
-                        t.className = "filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-surface-container-low/60 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all border border-white/5";
-                    });
-                    
-                    tab.className = "filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-primary text-on-primary font-semibold shadow-lg transition-all border border-primary";
+            const articlesGrid = document.getElementById('articles-grid');
 
-                    const category = tab.getAttribute('data-category');
-                    articles.forEach(article => {
-                        if (category === 'all' || article.getAttribute('data-category') === category) {
-                            article.style.display = 'flex';
-                        } else {
-                            article.style.display = 'none';
-                        }
-                    });
-                });
-            });
+            const categoryNames = {
+                branding: 'Personal Branding',
+                strategy: 'Content Strategy',
+                growth: 'Client Acquisition'
+            };
 
-            // Search logic
-            const searchInput = document.getElementById('blog-search');
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    const query = e.target.value.toLowerCase().trim();
-                    articles.forEach(article => {
-                        const title = article.querySelector('h2').innerText.toLowerCase();
-                        const desc = article.querySelector('p').innerText.toLowerCase();
-                        if (title.includes(query) || desc.includes(query)) {
-                            article.style.display = 'flex';
-                        } else {
-                            article.style.display = 'none';
-                        }
-                    });
-                });
+            async function fetchSanityPosts() {
+                try {
+                    const response = await fetch(SANITY_URL);
+                    const data = await response.json();
+                    const posts = data.result || [];
+
+                    if (posts.length === 0) {
+                        articlesGrid.innerHTML = `
+                            <div class="col-span-full text-center py-12 glass-panel rounded-2xl border border-white/10">
+                                <p class="text-on-surface-variant font-label-caps text-sm">No blog posts found in Sanity Studio yet.</p>
+                                <p class="text-xs text-primary mt-2">Publish an article in your Sanity Studio to automatically feature it here!</p>
+                            </div>
+                        `;
+                        return;
+                    }
+
+                    articlesGrid.innerHTML = posts.map(post => {
+                        const categoryKey = post.category || 'branding';
+                        const categoryLabel = categoryNames[categoryKey] || categoryKey;
+                        const readTime = post.readTime || '5 min read';
+                        const excerpt = post.excerpt || 'Read the full strategy guide breakdown.';
+                        const pubDate = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) : 'Recent';
+
+                        return `
+                            <article class="article-card glass-panel gold-rim p-6 sm:p-8 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-primary/40 transition-all duration-300 group" data-category="${categoryKey}">
+                                <div>
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="text-[10px] uppercase font-label-caps text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">${categoryLabel}</span>
+                                        <span class="text-[11px] text-on-surface-variant flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-sm">schedule</span> ${readTime}
+                                        </span>
+                                    </div>
+                                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-on-surface group-hover:text-primary transition-colors">${post.title}</h2>
+                                    <p class="text-xs sm:text-sm text-on-surface-variant leading-relaxed mb-6">${excerpt}</p>
+                                </div>
+                                <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                                    <span class="text-[11px] text-on-surface-variant">${pubDate}</span>
+                                    <button onclick="readArticle('${post.title.replace(/'/g, "\\'")}')" class="text-xs font-label-caps text-primary font-semibold flex items-center gap-1 hover:translate-x-1 transition-all">
+                                        Read Guide <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </article>
+                        `;
+                    }).join('');
+
+                    setupFilters();
+                } catch (error) {
+                    console.error('Failed to load Sanity posts:', error);
+                    articlesGrid.innerHTML = `<div class="col-span-full text-center py-8 text-xs text-red-400">Error connecting to Sanity CMS. Please verify internet connection.</div>`;
+                }
             }
+
+            function setupFilters() {
+                const tabs = document.querySelectorAll('.filter-tab');
+                const articles = document.querySelectorAll('.article-card');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        tabs.forEach(t => {
+                            t.className = "filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-surface-container-low/60 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all border border-white/5";
+                        });
+                        
+                        tab.className = "filter-tab px-4 py-2 text-xs font-label-caps rounded-xl bg-primary text-on-primary font-semibold shadow-lg transition-all border border-primary";
+
+                        const category = tab.getAttribute('data-category');
+                        articles.forEach(article => {
+                            if (category === 'all' || article.getAttribute('data-category') === category) {
+                                article.style.display = 'flex';
+                            } else {
+                                article.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+
+                const searchInput = document.getElementById('blog-search');
+                if (searchInput) {
+                    searchInput.addEventListener('input', (e) => {
+                        const query = e.target.value.toLowerCase().trim();
+                        articles.forEach(article => {
+                            const title = article.querySelector('h2').innerText.toLowerCase();
+                            const desc = article.querySelector('p').innerText.toLowerCase();
+                            if (title.includes(query) || desc.includes(query)) {
+                                article.style.display = 'flex';
+                            } else {
+                                article.style.display = 'none';
+                            }
+                        });
+                    });
+                }
+            }
+
+            fetchSanityPosts();
 
             window.readArticle = (title) => {
                 const message = `Hi Joyal, I am interested in reading your guide: "${title}". Can you share the full strategy breakdown with me?`;
