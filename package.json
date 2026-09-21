@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node api/leads.js",
-    "build": "echo 'Static build complete'"
+    "build:css": "npx @tailwindcss/cli -i ./input.css -o ./public/output.css --minify",
+    "build": "npm run build:css && echo 'Static build complete'"
   },
   "keywords": [],
   "author": "",
